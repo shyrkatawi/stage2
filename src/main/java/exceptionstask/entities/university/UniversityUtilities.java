@@ -21,7 +21,8 @@ public class UniversityUtilities {
         return gradeSum / student.getSubjects().size();
     }
 
-    public static double calculateAverageGradeForSubjectGroupDepartment(University university, SubjectType subjectType, GroupType groupType, DepartmentType departmentType) {
+    public static double calculateAverageGradeForSubjectGroupDepartment(
+            University university, SubjectType subjectType, GroupType groupType, DepartmentType departmentType) {
         int subjectCounter = 0;
         double gradeSum = 0;
         Department department = university.getDepartmentByType(departmentType);
@@ -31,6 +32,8 @@ public class UniversityUtilities {
             gradeSum += subject.getGrade().getValue();
             subjectCounter++;
         }
+//        "division by zero" is safe
+//        because if there are no subject student.getSubject(subjectType) will throw an exception
         return gradeSum / subjectCounter;
     }
 
