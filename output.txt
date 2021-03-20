@@ -1,0 +1,10 @@
+dir1(dir)
+——txt1.txt
+——txt11 - Copy.txt
+dir2(dir)
+——dir22(dir)
+————txt222222 - Copy (2).txt
+————txt222222 - Copy.txt
+————txt222222.txt
+——txt2.txt
+outside.txt
