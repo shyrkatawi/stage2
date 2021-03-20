@@ -1,17 +1,17 @@
-package errorAndExceptions.entities;
+package exceptionstask.entities;
 
-import errorAndExceptions.types.SubjectType;
+import exceptionstask.types.SubjectType;
 
 public class Subject {
-    private SubjectType subjectType;
-    private Grade grade;
+    private final SubjectType subjectType;
+    private final Grade grade;
 
     public Subject(SubjectType subjectType, int gradeValue) {
         this.subjectType = subjectType;
         this.grade = new Grade(gradeValue);
     }
 
-    public SubjectType getSubjectType() {
+    public SubjectType getType() {
         return subjectType;
     }
 

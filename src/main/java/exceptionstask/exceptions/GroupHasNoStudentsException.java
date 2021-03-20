@@ -1,4 +1,4 @@
-package errorAndExceptions.exceptions;
+package exceptionstask.exceptions;
 
 public class GroupHasNoStudentsException extends RuntimeException{
     public GroupHasNoStudentsException(String message) {

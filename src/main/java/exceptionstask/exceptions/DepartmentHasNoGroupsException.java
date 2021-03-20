@@ -1,4 +1,4 @@
-package errorAndExceptions.exceptions;
+package exceptionstask.exceptions;
 
 public class DepartmentHasNoGroupsException extends RuntimeException{
     public DepartmentHasNoGroupsException(String message) {

@@ -1,11 +1,11 @@
-package errorAndExceptions.entities;
+package exceptionstask.entities;
 
-import errorAndExceptions.exceptions.IllegalGradeException;
+import exceptionstask.exceptions.IllegalGradeException;
 
 public class Grade {
     private static final int MINIMAL_POSSIBLE_GRADE = 0;
     private static final int MAXIMUM_POSSIBLE_GRADE = 10;
-    private int value;
+    private final int value;
 
     public Grade(int value) {
         if(value < MINIMAL_POSSIBLE_GRADE || value > MAXIMUM_POSSIBLE_GRADE){

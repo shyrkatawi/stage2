@@ -1,21 +1,24 @@
-package errorAndExceptions.entities.university;
+package exceptionstask.entities.university;
 
-import errorAndExceptions.entities.*;
-import errorAndExceptions.types.DepartmentType;
-import errorAndExceptions.types.GroupType;
-import errorAndExceptions.types.SubjectType;
+import exceptionstask.entities.*;
+import exceptionstask.types.DepartmentType;
+import exceptionstask.types.GroupType;
+import exceptionstask.types.SubjectType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class UniversityCreator {
-    private static int STUDENT_ID = 1;
+    private static int id = 1;
+
+    private UniversityCreator() {
+    }
 
     public static Student createStudent(SubjectType[] subjectTypes) {
-        String name = "student" + STUDENT_ID;
-        int grade = STUDENT_ID % 10;
-        STUDENT_ID++;
+        String name = "student" + id;
+        int grade = id % 10;
+        id++;
 
         List<Subject> subjectList = new ArrayList<>();
         for (SubjectType subjectType : subjectTypes) {
@@ -38,8 +41,8 @@ public class UniversityCreator {
                 SubjectType.BIOLOGY,
                 SubjectType.CHEMISTRY
         };
-        Group engineeringGroup1 = new Group(GroupType.GRP_1, createStudentList(subjectTypesForEngineeringDepartment,2));
-        Group engineeringGroup2 = new Group(GroupType.GRP_2, createStudentList(subjectTypesForEngineeringDepartment,2));
+        Group engineeringGroup1 = new Group(GroupType.GRP_1, createStudentList(subjectTypesForEngineeringDepartment, 2));
+        Group engineeringGroup2 = new Group(GroupType.GRP_2, createStudentList(subjectTypesForEngineeringDepartment, 2));
 
         SubjectType[] subjectTypesForInformatizationDepartment = new SubjectType[]{
                 SubjectType.ENGLISH,

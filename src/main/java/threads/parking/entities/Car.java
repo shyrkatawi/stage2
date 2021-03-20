@@ -20,7 +20,7 @@ public class Car implements Runnable {
 
     public void leaveParkingPlace() throws InterruptedException {
         Thread.sleep(TimeUnit.SECONDS.toMillis(2));
-        parking.removeCarFromParkingPlace(this);
+//        parking.removeCarFromParkingPlace(this);
         parking.showParking();
     }
 

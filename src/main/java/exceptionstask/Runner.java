@@ -1,10 +1,10 @@
-package errorAndExceptions;
+package exceptionstask;
 
 
-import errorAndExceptions.entities.university.*;
-import errorAndExceptions.types.DepartmentType;
-import errorAndExceptions.types.GroupType;
-import errorAndExceptions.types.SubjectType;
+import exceptionstask.entities.university.*;
+import exceptionstask.types.DepartmentType;
+import exceptionstask.types.GroupType;
+import exceptionstask.types.SubjectType;
 
 /**
  * В университете есть несколько факультетов, в которых учатся студенты, объединенные в группы.
@@ -24,12 +24,9 @@ import errorAndExceptions.types.SubjectType;
 public class Runner {
     public static void main(String[] args) {
         University university = UniversityCreator.createUniversity();
-        UniversityUtilities.showAverageGradeForStudent(university, "student2");
-        UniversityUtilities.showAverageGradeForSubjectGroupDepartment(
-                university, SubjectType.ENGLISH, GroupType.GRP_5, DepartmentType.INFORMATIZATION);
-        UniversityUtilities.showAverageGradeForSubject(university, SubjectType.BIOLOGY);
+        UniversityUtilities.calculateAverageGradeForStudent(university, "student2");
+        UniversityUtilities.calculateAverageGradeForSubjectGroupDepartment(
+                university, SubjectType.ENGLISH, GroupType.GRP_4, DepartmentType.INFORMATIZATION);
+        UniversityUtilities.calculateAverageGradeForSubject(university, SubjectType.BIOLOGY);
     }
 }
-// спросить если ли смысл кидать везде RuntimeException
-// UniversityUtilities нужно ли писать дополнительные исключения для этих методов или
-// изменить уже существющие исключения(или оставить на "логике -1")

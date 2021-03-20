@@ -10,7 +10,7 @@ public class Parking {
         }
     }
 
-    synchronized public boolean setParkingPlace(Car car) {
+    public synchronized boolean setParkingPlace(Car car) {
         for (ParkingPlace parkingPlace : parkingPlaces) {
             if (parkingPlace.checkIsAvailable()) {
                 parkingPlace.parkCar(car);
@@ -20,7 +20,12 @@ public class Parking {
         return false;
     }
 
-    synchronized public boolean removeCarFromParkingPlace(Car car) {
+    /**
+     *
+     * @param car
+     * @return
+     */
+    synchronized public boolean tryToRemoveCarFromParkingPlace(Car car) {
         for (ParkingPlace parkingPlace : parkingPlaces) {
             if (car.equals(parkingPlace.getCar())) {
                 parkingPlace.removeCar();

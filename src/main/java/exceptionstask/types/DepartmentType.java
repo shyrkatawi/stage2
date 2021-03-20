@@ -1,4 +1,4 @@
-package errorAndExceptions.types;
+package exceptionstask.types;
 
 public enum DepartmentType {
     ENGINEERING, INFORMATIZATION

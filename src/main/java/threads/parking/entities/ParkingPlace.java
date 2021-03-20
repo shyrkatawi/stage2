@@ -4,18 +4,9 @@ public class ParkingPlace {
     private static int ID = 1;
     private final int placeId;
     private Car car;
-    private boolean isAvailable;
-//    private Car car = null;
-//    private boolean isAvailable = true;
-
-//    public ParkingPlace() {
-//        placeId = ID;
-//        ID++;
-//    }
+    private boolean isAvailable = true;
 
     public ParkingPlace() {
-        car = null;
-        isAvailable = true;
         placeId = ID;
         ID++;
     }
