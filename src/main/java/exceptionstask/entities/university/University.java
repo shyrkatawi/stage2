@@ -2,11 +2,12 @@ package exceptionstask.entities.university;
 
 import exceptionstask.entities.Department;
 import exceptionstask.entities.Student;
-import exceptionstask.exceptions.DepartmentHasNoGroupsException;
 import exceptionstask.exceptions.UniversityDoesNotHaveDepartmentException;
 import exceptionstask.exceptions.UniversityDoesNotHaveStudentException;
+import exceptionstask.exceptions.UniversityHasNoDepartmentsException;
 import exceptionstask.types.DepartmentType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class University {
@@ -16,13 +17,10 @@ public class University {
     public University(String name, List<Department> departments) {
         this.name = name;
         if (departments == null || departments.isEmpty()) {
-            throw new DepartmentHasNoGroupsException("ERROR: University " + name + " does not have any department");
+            throw new UniversityHasNoDepartmentsException(
+                    "ERROR: University " + name + " does not have any department");
         }
         this.departments = departments;
-    }
-
-    public List<Department> getDepartments() {
-        return departments;
     }
 
     public Department getDepartmentByType(DepartmentType type){
@@ -44,5 +42,13 @@ public class University {
         }
         throw new UniversityDoesNotHaveStudentException(
                 "University does not have student with name " + name);
+    }
+
+    public List<Student> getAllStudents(){
+        List<Student> students = new ArrayList<>();
+        for (Department department : departments) {
+            students.addAll(department.getAllStudents());
+        }
+        return students;
     }
 }

@@ -5,6 +5,7 @@ import exceptionstask.exceptions.DepartmentDoesNotHaveGroupException;
 import exceptionstask.types.DepartmentType;
 import exceptionstask.types.GroupType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
@@ -45,5 +46,13 @@ public class Department {
         }
         throw new DepartmentDoesNotHaveGroupException(
                 "department does not have group " + groupType);
+    }
+
+    public List<Student> getAllStudents(){
+        List<Student> students = new ArrayList<>();
+        for (Group group : groups) {
+            students.addAll(group.getStudents());
+        }
+        return students;
     }
 }

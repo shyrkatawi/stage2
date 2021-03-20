@@ -6,6 +6,8 @@ import exceptionstask.types.DepartmentType;
 import exceptionstask.types.GroupType;
 import exceptionstask.types.SubjectType;
 
+import java.util.List;
+
 public class UniversityUtilities {
     private UniversityUtilities() {
     }
@@ -35,15 +37,12 @@ public class UniversityUtilities {
     public static double calculateAverageGradeForSubject(University university, SubjectType subjectType) {
         int subjectCounter = 0;
         double gradeSum = 0;
-        for (Department department : university.getDepartments()) {
-            for (Group group : department.getGroups()) {
-                for (Student student : group.getStudents()) {
-                    if (student.isHasSubject(subjectType)) {
-                        Subject subject = student.getSubject(subjectType);
-                        gradeSum += subject.getGrade().getValue();
-                        subjectCounter++;
-                    }
-                }
+        final List<Student> universityAllStudents = university.getAllStudents();
+        for (Student student : universityAllStudents) {
+            if (student.isHasSubject(subjectType)) {
+                Subject subject = student.getSubject(subjectType);
+                gradeSum += subject.getGrade().getValue();
+                subjectCounter++;
             }
         }
         if (subjectCounter != 0) {

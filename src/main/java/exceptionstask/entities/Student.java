@@ -43,7 +43,6 @@ public class Student {
                 return true;
             }
         }
-        throw new StudentDoesNotHaveSubjectException(
-                "student does not have subject " + subjectType);
+        return false;
     }
 }
