@@ -1,46 +1,38 @@
 package threads.parking.entities;
 
 public class Parking {
-    ParkingPlace[] parkingPlaces;
+    Car[] cars;
 
     public Parking(int parkingSize) {
-        parkingPlaces = new ParkingPlace[parkingSize];
-        for (int i = 0; i < parkingPlaces.length; i++) {
-            parkingPlaces[i] = new ParkingPlace();
+        cars = new Car[parkingSize];
+    }
+
+    public synchronized void showParkingState() {
+        System.out.println("threads.parking now:");
+        for (Car car : cars) {
+            System.out.println(car);
         }
     }
 
-    public synchronized boolean setParkingPlace(Car car) {
-        for (ParkingPlace parkingPlace : parkingPlaces) {
-            if (parkingPlace.checkIsAvailable()) {
-                parkingPlace.parkCar(car);
-                return true;
+    public synchronized void addCar(Car car) {
+        for (int i = 0; i < cars.length; i++) {
+            if (null == cars[i]) {
+                cars[i] = car;
+                break;
             }
         }
-        return false;
+        System.out.println(car + " in the threads.parking " );
+        showParkingState();
     }
 
-    /**
-     *
-     * @param car
-     * @return
-     */
-    synchronized public boolean tryToRemoveCarFromParkingPlace(Car car) {
-        for (ParkingPlace parkingPlace : parkingPlaces) {
-            if (car.equals(parkingPlace.getCar())) {
-                parkingPlace.removeCar();
-                return true;
+    public synchronized void removeCar(Car car) {
+        for (int i = 0; i < cars.length; i++) {
+            if (car.equals(cars[i])) {
+                cars[i] = null;
+                break;
             }
         }
-        return false;
-    }
-
-
-    public void showParking() {
-        System.out.print("parking now: ");
-        for (ParkingPlace parkingPlace : parkingPlaces) {
-            System.out.print(parkingPlace + ", ");
-        }
-        System.out.println();
+        System.out.println(car + " left the threads.parking");
+        showParkingState();
     }
 }
