@@ -25,4 +25,9 @@ public class Car implements Runnable {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

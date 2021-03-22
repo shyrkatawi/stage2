@@ -8,10 +8,11 @@ public class Parking {
     }
 
     public synchronized void showParkingState() {
-        System.out.println("threads.parking now:");
+        System.out.println("parking now:");
         for (Car car : cars) {
             System.out.println(car);
         }
+        System.out.println();
     }
 
     public synchronized void addCar(Car car) {
@@ -21,7 +22,7 @@ public class Parking {
                 break;
             }
         }
-        System.out.println(car + " in the threads.parking " );
+        System.out.println(car + " in the parking " );
         showParkingState();
     }
 
@@ -32,7 +33,8 @@ public class Parking {
                 break;
             }
         }
-        System.out.println(car + " left the threads.parking");
+        System.out.println(car + " left the parking");
         showParkingState();
     }
+
 }

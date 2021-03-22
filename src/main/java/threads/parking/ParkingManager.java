@@ -25,7 +25,7 @@ public class ParkingManager {
             parking.removeCar(car);
             semaphore.release();
         } else {
-            System.out.println(car + " can not wait for threads.parking anymore");
+            System.out.println(car + " can not wait for parking anymore");
         }
     }
 }
